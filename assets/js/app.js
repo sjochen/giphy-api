@@ -1,4 +1,4 @@
-var topics = ["Batman", "Superman", "Green Arrow", "Thor", "Spiderman"];
+var topics = ["Batman", "Superman", "Green Arrow", "The Hulk", "Spiderman"];
 
 
 function renderButtons() {
@@ -23,7 +23,7 @@ function renderButtons() {
 }
 
 
-$("#supButton").on("click", function (event) {
+$("#addSup").on("click", function (event) {
     event.preventDefault();
     
     var supher = $("#supInput").val().trim();
