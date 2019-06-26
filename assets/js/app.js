@@ -61,7 +61,7 @@ function renderButtons() {
 
                 $("#gifs-appear-here").prepend(gifDiv);
 
-               
+
             }
         });
     });
@@ -81,15 +81,17 @@ $("body").on("click", ".gif", function () {
 
 
 $("#addSup").on("click", function (event) {
+
     event.preventDefault();
-
-    var supher = $("#supInput").val().trim();
-
-
-    topics.push(supher);
+    if ($('#supInput').val() !== '') {
+        var supher = $("#supInput").val().trim();
 
 
-    renderButtons();
+        topics.push(supher);
+
+
+        renderButtons();
+    }
 });
 
 
