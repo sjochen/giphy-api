@@ -20,7 +20,7 @@ function renderButtons() {
 
         $("#buttons").append(a);
     }
-    $("button").on("click", function () {
+    $("body").on("click", "button", function () {
 
         var person = $(this).attr("data-name");
 
@@ -52,7 +52,7 @@ function renderButtons() {
                 var personImage = $("<img>");
 
 
-                personImage.attr("src", results[i].images.fixed_height.url);
+                personImage.attr({ src: results[i].images.fixed_height_still.url, 'data-still': results[i].images.fixed_height_still.url, 'data-animate': results[i].images.fixed_height.url, 'data-state': 'still', 'class': 'gif' });
 
 
                 gifDiv.append(p);
@@ -60,30 +60,43 @@ function renderButtons() {
 
 
                 $("#gifs-appear-here").prepend(gifDiv);
+
+               
             }
         });
     });
 }
+$("body").on("click", ".gif", function () {
 
-    
-            $("#addSup").on("click", function (event) {
-                event.preventDefault();
+    var state = $(this).attr("data-state");
 
-                var supher = $("#supInput").val().trim();
-
-
-                topics.push(supher);
-
-
-                renderButtons();
-            });
-
-            
-        
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 
 
-            renderButtons();
+$("#addSup").on("click", function (event) {
+    event.preventDefault();
+
+    var supher = $("#supInput").val().trim();
+
+
+    topics.push(supher);
+
+
+    renderButtons();
+});
 
 
 
-        
+
+renderButtons();
+
+
+
+

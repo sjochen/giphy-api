@@ -1,3 +1,8 @@
+
+body {
+    background-image: url(../css/f796073374befbec23438807bbfda6a6aeb269f1.jpg);
+}
+
 button,
 div,
 form,
@@ -7,4 +12,26 @@ input {
 
 #size {
     display:inline-block;
+}
+
+header {
+    text-align: center;
+    color: yellow;
+    font-size: 100%; 
+}
+
+button:hover {
+	background-color: yellow;
+}
+
+.gif:hover  {
+ 
+        outline: 3px solid yellow;
+        
+    
+}
+
+
+label {
+    color: yellow;
 }
